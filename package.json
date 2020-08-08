@@ -1,0 +1,15 @@
+{
+  "name": "readux-saga-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "\"concurrently \\\"npm run server --prefix server\\\" \\\"npm run start --prefix client\\\"\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
