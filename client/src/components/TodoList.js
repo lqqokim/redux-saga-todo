@@ -1,29 +1,33 @@
 import React from 'react';
+import { useDispatch } from "react-redux";
 import PropTypes from 'prop-types';
+import { toggleTodo } from './../_actions';
 import Todo from './Todo';
 
-const TodoList = ({ todos, toggleTodo }) => {
-    console.log('TodoList :: ', todos);
+const TodoList = (props) => {
+    const { list } = props;
+    // console.log('props :: ', props);
+
+    const dispatch = useDispatch();
 
     return(
         <ul>
-            {todos.map(todo => (
-                <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)}/>
+            {list.map(v => (
+                <Todo key={v._id} {...v} onClick={() => dispatch(toggleTodo(v))}/>
             ))}
         </ul>
     );
 }
 
 TodoList.propTypes = {
-    todos: PropTypes.arrayOf(
+    list: PropTypes.arrayOf(
         // 특정 형태를 갖는 객체
         PropTypes.shape({
             id: PropTypes.number.isRequired,
             completed: PropTypes.bool.isRequired,
             text: PropTypes.string.isRequired
         }).isRequired
-    ).isRequired,
-    toggleTodo: PropTypes.func.isRequired
+    ).isRequired
 };
 
 export default TodoList;

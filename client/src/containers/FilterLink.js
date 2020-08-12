@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setVisibilityFilter } from "../actions";
+import { setVisibilityFilter } from "../_actions";
 import Link from '../components/Link';
 
 // ownProps: FilterLink 에서 넘어오는 Prop (at Footer.js)

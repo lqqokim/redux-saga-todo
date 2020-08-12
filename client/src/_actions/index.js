@@ -21,19 +21,23 @@ export const addTodo = text => ({
     }
 })
 
-
 export const getTodos = () => ({
     type: GET_TODOS
 });
 
-export const setVisibilityFilter = filter => ({
-    type: SET_VISIBILITY_FILTER,
-    filter
+
+export const toggleTodo = todo => ({
+    type: TOGGLE_TODO,
+    payload: {
+        todo
+    }
 });
 
-export const toggleTodo = id => ({
-    type: TOGGLE_TODO,
-    id
+export const setVisibilityFilter = filter => ({
+    type: SET_VISIBILITY_FILTER,
+    payload: {
+        filter
+    }
 });
 
 /**
@@ -41,7 +45,7 @@ export const toggleTodo = id => ({
  * @type {{SHOW_ALL: string, SHOW_ACTIVE: string, SHOW_COMPLETED: string}}
  */
 export const VisibilityFilters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_COMPLETED: 'SHOW_COMPLETED',
-    SHOW_ACTIVE: 'SHOW_ACTIVE'
+    ALL: 'ALL',
+    COMPLETED: 'COMPLETED',
+    ACTIVE: 'ACTIVE'
 };

@@ -1,8 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { useDispatch } from 'react-redux'
+import { addTodo } from './../_actions'
 
-const AddTodo = ({ dispatch }) => {
+const TodoAddContainer = () => {
+    const dispatch = useDispatch();
     let input
 
     return (
@@ -24,4 +25,4 @@ const AddTodo = ({ dispatch }) => {
     )
 }
 
-export default connect()(AddTodo)
+export default TodoAddContainer

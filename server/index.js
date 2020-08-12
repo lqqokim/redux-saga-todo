@@ -22,7 +22,7 @@ mongoose.connect(config.mongoURI, {
 }).then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
-    // k3yPvkqmY1kKFkjz
+// k3yPvkqmY1kKFkjz
 app.get('/', (req, res) => res.send('Hello World!!'));
 
 app.get('/api/todos', (req, res) => {
@@ -45,6 +45,19 @@ app.post('/api/todos', (req, res) => {
         });
     })
 });
+
+app.put('/api/todo', (req, res) => {
+    console.log('req ', req.body)
+    Todo.findOneAndUpdate({ _id: req.body._id }, { $set: { completed: !req.body.completed } }, { new: true })
+        .then(data => {
+            console.log('aa ', data);
+            return res.status(200).send({
+                success: true,
+                data
+            })
+        }
+        );
+})
 
 app.post('/api/users/register', (req, res) => {
 
